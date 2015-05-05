@@ -11,7 +11,7 @@ var {
   StyleSheet,
   View,
   Text,
-  TouchableOpacity
+  InteractionManager
 } = React;
 
 var _previousLeft = 0;
@@ -38,12 +38,30 @@ var Animation = React.createClass({
 
     requestAnimationFrame(_run);
 
+    // var _run = function () {
+
+    //   box.setNativeProps({
+    //     left: _previousLeft + 2
+    //   });
+
+
+
+    //   _previousLeft += 2;
+
+    //   if (_previousLeft < 200) {
+    //     InteractionManager.runAfterInteractions(_run);
+    //   }
+
+    // };
+
+    // InteractionManager.runAfterInteractions(_run);
+
   },
 
   render: function() {
     return (
       <View style={styles.container}>
-          <Text style={styles.button} onPress={this._onPress}>点我</Text>
+        <Text style={styles.button} onPress={this._onPress}>点我</Text>
 
         <View style={styles.box} ref='box'></View>
       </View>
